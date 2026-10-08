@@ -1,0 +1,22 @@
+```yaml
+name: ElementalBlades
+version: 1.0.0
+main: uk.magicsmp.elementalblades.ElementalBladesPlugin
+api-version: '26.2'
+author: MagicSMP
+description: Custom Fire and Ice swords for MagicSMP
+
+commands:
+  elementalblade:
+    description: Give Fire or Ice elemental blades
+    usage: /elementalblade give <fire|ice> <player>
+    permission: elementalblades.admin
+
+permissions:
+  elementalblades.admin:
+    description: Allows giving elemental blades
+    default: op
+  elementalblades.use:
+    description: Allows using elemental blade abilities
+    default: true
+```
