@@ -1,22 +1,31 @@
 ```yaml
-name: ElementalBlades
-version: 1.0.0
-main: uk.magicsmp.elementalblades.ElementalBladesPlugin
-api-version: '26.2'
-author: MagicSMP
-description: Custom Fire and Ice swords for MagicSMP
+name: Build ElementalBlades
 
-commands:
-  elementalblade:
-    description: Give Fire or Ice elemental blades
-    usage: /elementalblade give <fire|ice> <player>
-    permission: elementalblades.admin
+on:
+  push:
+  workflow_dispatch:
 
-permissions:
-  elementalblades.admin:
-    description: Allows giving elemental blades
-    default: op
-  elementalblades.use:
-    description: Allows using elemental blade abilities
-    default: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build plugin
+        run: mvn --batch-mode clean package
+
+      - name: Upload plugin JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: ElementalBlades
+          path: target/*.jar
 ```
