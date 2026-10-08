@@ -1,0 +1,18 @@
+name: ElementalBlades
+version: 1.0.0
+main: uk.magicsmp.elementalblades.ElementalBladesPlugin
+api-version: '26.2'
+author: MagicSMP
+description: Adds the Inferno Blade and Frostbite Blade with custom abilities.
+commands:
+  elementalblade:
+    description: Give an elemental sword.
+    usage: /elementalblade give <fire|ice> <player>
+    permission: elementalblades.admin
+permissions:
+  elementalblades.admin:
+    description: Allows giving elemental swords.
+    default: op
+  elementalblades.use:
+    description: Allows using elemental sword abilities.
+    default: true
